@@ -8,15 +8,19 @@ void setup() {
 
 void loop() {
   Serial.println("Wifi Scannen");
-  int aantal = WiFi.ScanNetworks();
+
+  int aantal = WiFi.scanNetworks();
 
   if(aantal < 0 ){
     Serial.println("Scannen mislukt");
   } else {
-    Serial.println("Aantal gevonden netwerken: ");
+    Serial.print("Aantal gevonden netwerken: ");
+    Serial.println(aantal);
   }
+  for(int i = 0 )
+ WiFi.scanDelete();
+delay(5000);
+ 
 }
-teller++;
-delay(2000);
-}
+
   
