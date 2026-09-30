@@ -1,16 +1,22 @@
-int teller = 0;
+#include <WiFi.h>
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
+  WiFi.mode(WIFI_STA);
+  delay(1000);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  Serial.print("Aantal: ,");
-  Serial.println(teller);
+  Serial.println("Wifi Scannen");
+  int aantal = WiFi.ScanNetworks();
 
-  teller++;
-  delay(2000);
+  if(aantal < 0 ){
+    Serial.println("Scannen mislukt");
+  } else {
+    Serial.println("Aantal gevonden netwerken: ");
+  }
+}
+teller++;
+delay(2000);
 }
   
