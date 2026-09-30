@@ -1,12 +1,19 @@
 #include <WiFi.h>
-
+void toonMenu(){
+  Serial.println("\n Signalshark ");
+  Serial.println("w = Wifi scannen");
+  Serial.println("m = Menu tonen");
+}
 void setup() {
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   delay(1000);
+  toonMenu();
 }
 
-void loop() {
+
+
+void scanWifi() {
   Serial.println("Wifi Scannen");
 
   int aantal = WiFi.scanNetworks();
@@ -29,14 +36,24 @@ void loop() {
      } else if (signaal >= -75) {
         Serial.println("Gemiddeld Signaal");
       } else {
-        Serial.println("Zwak Signa-60)al");
+        Serial.println("Zwak Signaal");
       }
     
   }
   
  WiFi.scanDelete();
-delay(5000);
  
 }
+void loop(){
+  if (Serial.available() > 0) {
+    char keuze = Serial.read();
 
+     if (keuze == 'w'){
+      scanWifi();
+    } else if (keuze == 'm') {
+      toonMenu();
+    }
+  }
+  delay(10);
+}
   
