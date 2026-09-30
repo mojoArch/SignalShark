@@ -28,6 +28,8 @@ void scanWifi() {
   for(int i = 0; i < aantal; i++){
     int signaal = WiFi.RSSI(i); 
     Serial.print(WiFi.SSID(i));
+    Serial.print(" | kanaal: ");
+    Serial.print(WiFi.channel(i));
     Serial.print(" | ");
     Serial.print(signaal);
     Serial.print(" dBm | ");
