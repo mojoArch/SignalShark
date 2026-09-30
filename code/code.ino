@@ -18,7 +18,10 @@ void loop() {
     Serial.println(aantal);
   }
   for(int i = 0; i < aantal; i++){
-    Serial.println(WiFi.SSID(i));
+    Serial.print(WiFi.SSID(i));
+    Serial.print(" - Signaal : ");
+    Serial.print(WiFi.RSSI(i));
+    Serial.println("dBm");
   }
   
  WiFi.scanDelete();
