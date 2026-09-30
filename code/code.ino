@@ -17,7 +17,10 @@ void loop() {
     Serial.print("Aantal gevonden netwerken: ");
     Serial.println(aantal);
   }
-  for(int i = 0 )
+  for(int i = 0; i < aantal; i++){
+    Serial.println(WiFi.SSID(i));
+  }
+  
  WiFi.scanDelete();
 delay(5000);
  
