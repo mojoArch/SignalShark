@@ -18,10 +18,20 @@ void loop() {
     Serial.println(aantal);
   }
   for(int i = 0; i < aantal; i++){
+    int signaal = WiFi.RSSI(i); 
     Serial.print(WiFi.SSID(i));
-    Serial.print(" - Signaal : ");
-    Serial.print(WiFi.RSSI(i));
-    Serial.println("dBm");
+    Serial.print(" | ");
+    Serial.print(signaal);
+    Serial.print(" dBm | ");
+
+    if(signaal >= -60) {
+      Serial.println("Sterk Signaal");
+     } else if (signaal >= -75) {
+        Serial.println("Gemiddeld Signaal");
+      } else {
+        Serial.println("Zwak Signa-60)al");
+      }
+    
   }
   
  WiFi.scanDelete();
