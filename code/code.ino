@@ -64,6 +64,8 @@ void loop(){
       toonMenu();
     } else if (keuze == 'h'){
       toonHulp();
+    } else if (keuze != '\n' && keuze != '\r'){
+      Serial.println("Onbekende keuze, klik op m");
     }
   }
   delay(10);
