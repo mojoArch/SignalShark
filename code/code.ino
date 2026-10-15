@@ -11,7 +11,9 @@ void setup() {
   delay(1000);
   toonMenu();
 }
-
+const char* beoordeelSignaal(int signaal){
+  return "Sterk Signaal";
+}
 
 
 void scanWifi() {
