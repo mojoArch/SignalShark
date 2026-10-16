@@ -3,6 +3,7 @@ void toonMenu(){
   Serial.println("\n Signalshark ");
   Serial.println("w = Wifi scannen");
   Serial.println("m = Menu tonen");
+  Serial.println(beoordeelSignaal(-50));
   Serial.println("h = Hulp");
 }
 void setup() {
@@ -29,6 +30,8 @@ void scanWifi() {
 
   if(aantal < 0 ){
     Serial.println("Scannen mislukt");
+  } else if (aantal == 0){
+    Serial.println("geen netwerk gevonden");
   } else {
     Serial.print("Aantal gevonden netwerken: ");
     Serial.println(aantal);
@@ -42,13 +45,6 @@ void scanWifi() {
     Serial.print(signaal);
     Serial.print(" dBm | ");
 
-    if(signaal >= -60) {
-      Serial.println("Sterk Signaal");
-     } else if (signaal >= -75) {
-        Serial.println("Gemiddeld Signaal");
-      } else {
-        Serial.println("Zwak Signaal");
-      }
     
   }
   
@@ -66,11 +62,11 @@ void loop(){
   if (Serial.available() > 0) {
     char keuze = Serial.read();
 
-     if (keuze == 'w'){
+     if (keuze == 'w' || keuze == 'W'){
       scanWifi();
-    } else if (keuze == 'm') {
+    } else if (keuze == 'm' || keuze == 'M') {
       toonMenu();
-    } else if (keuze == 'h'){
+    } else if (keuze == 'h' || keuze == 'H'){
       toonHulp();
     } else if (keuze != '\n' && keuze != '\r'){
       Serial.println("Onbekende keuze, klik op m");
