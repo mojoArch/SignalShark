@@ -45,7 +45,8 @@ for vliegtuig in vliegtuigen:
       
 
     vliegtuigtype = vliegtuig.get("t") or "onbekend"
-    print(f"{roepnaam:<12} | Type: {vliegtuigtype}")
+    registratie = vliegtuig.get("r") or "onbekend"
+    print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie}")
 
 
 
