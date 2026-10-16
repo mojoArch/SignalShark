@@ -12,7 +12,13 @@ void setup() {
   toonMenu();
 }
 const char* beoordeelSignaal(int signaal){
-  return "Sterk Signaal";
+  if(signaal >= -60){
+    return "Sterk Signaal";
+  }
+  if(signaal >= -75){
+    return "Gemiddeld Signaal";
+  }
+  return "Zwak Signaal";
 }
 
 
