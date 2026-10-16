@@ -26,7 +26,12 @@ const char* beoordeelSignaal(int signaal){
 void scanWifi() {
   Serial.println("Wifi Scannen");
 
-  int aantal = WiFi.scanNetworks();
+unsigned long startTijd = millis();
+int aantal = WiFi.scanNetworks();
+unsigned long scanDuur = millis() - startTijd; 
+Serial.print("Scan duurde: ");
+Serial.print(scanDuur);
+Serial.println("ms");
 
   if(aantal < 0 ){
     Serial.println("Scannen mislukt");
