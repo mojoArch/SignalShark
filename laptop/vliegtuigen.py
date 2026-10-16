@@ -12,7 +12,12 @@ else:
     print("Locatie ophalen mislukt.")
 
 breedtegraad = 52.38
-lentegraad = 4.82
+lengtegraad = 4.82
 straal = 25
 
 print("Zoekgebied: omgeving Slotermeer, Amsterdam")
+
+
+url = f"https://api.adsb.lol/v2/lat/{breedtegraad}/lon/{lengtegraad}/dist/{straal}"
+
+print(url)
