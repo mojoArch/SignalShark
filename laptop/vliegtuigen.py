@@ -46,7 +46,16 @@ for vliegtuig in vliegtuigen:
 
     vliegtuigtype = vliegtuig.get("t") or "onbekend"
     registratie = vliegtuig.get("r") or "onbekend"
-    print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie}")
+    hoogte = vliegtuig.get("alt_baro")
+
+    if hoogte == "ground":
+        hoogteTekst = "geland"
+    elif hoogte is None:
+        hoogteTekst = "onbekend"
+    else: 
+        hoogteTekst = f"{hoogte} ft"
+    print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie:<10} | hoogte: {hoogteTekst}")
+
 
 
 
