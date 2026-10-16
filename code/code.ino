@@ -1,4 +1,6 @@
 #include <WiFi.h>
+int aantalScans = 0;
+
 void toonMenu(){
   Serial.println("\n Signalshark ");
   Serial.println("w = Wifi scannen");
@@ -24,6 +26,9 @@ const char* beoordeelSignaal(int signaal){
 
 
 void scanWifi() {
+  aantalScans++;
+  Serial.print("Scan nummer: ");
+  Serial.println(aantalScans);
   Serial.println("Wifi Scannen");
 
 unsigned long startTijd = millis();
@@ -53,7 +58,6 @@ Serial.println("ms");
     Serial.print(" dBm | ");
     Serial.println(beoordeelSignaal(signaal));
 
-    
   }
   
  WiFi.scanDelete();
