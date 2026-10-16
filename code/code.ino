@@ -42,6 +42,8 @@ Serial.println("ms");
     Serial.println(aantal);
   }
   for(int i = 0; i < aantal; i++){
+    Serial.print(i + 1);
+    Serial.print(". ");
     int signaal = WiFi.RSSI(i); 
     Serial.print(WiFi.SSID(i));
     Serial.print(" | kanaal: ");
@@ -49,6 +51,7 @@ Serial.println("ms");
     Serial.print(" | ");
     Serial.print(signaal);
     Serial.print(" dBm | ");
+    Serial.println(beoordeelSignaal(signaal));
 
     
   }
@@ -61,6 +64,7 @@ void toonHulp(){
   Serial.println("Typ w = wifi-netwerken");
   Serial.println("Een waarde -> 0 dBm == sterkst");
   Serial.println("Typ m = menu ");
+  
 }
 
 void loop(){
