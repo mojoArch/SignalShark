@@ -1,7 +1,15 @@
 import urllib.request
 import json
 
-print("vliegtuigen")
+
+print(r"""
+                 __|__
+          -------(_)-------
+                  / \
+
+       S I G N A L S H A R K
+          Vliegtuigtracker
+""")
 
 with urllib.request.urlopen("https://ipwho.is/", timeout=10) as antwoord:
     locatie = json.load(antwoord)
@@ -28,3 +36,16 @@ with urllib.request.urlopen(url, timeout=10) as antwoord:
 vliegtuigen  = gegevens.get("ac", [])
 
 print("aantal gevonden vliegtuigen:", len(vliegtuigen))
+
+for vliegtuig in vliegtuigen:
+    roepnaam = vliegtuig.get("flight",  "").strip()
+    
+    if not roepnaam:
+        roepnaam = "onbekend"
+      
+
+    vliegtuigtype = vliegtuig.get("t") or "onbekend"
+    print(f"{roepnaam:<12} | Type: {vliegtuigtype}")
+
+
+
