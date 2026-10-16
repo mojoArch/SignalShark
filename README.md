@@ -155,12 +155,9 @@ This project is helping me learn:
 
 - C++ and Arduino development.
 - Python and indentation.
-- Functions, conditions, loops, and variables.
 - Serial communication.
 - APIs and JSON.
 - Radio frequencies and hardware interfaces.
-- Troubleshooting one problem at a time.
-- Git and GitHub.
 
 ## Data sources
 
