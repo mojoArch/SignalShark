@@ -21,3 +21,10 @@ print("Zoekgebied: omgeving Slotermeer, Amsterdam")
 url = f"https://api.adsb.lol/v2/lat/{breedtegraad}/lon/{lengtegraad}/dist/{straal}"
 
 print(url)
+
+with urllib.request.urlopen(url, timeout=10) as antwoord:
+    gegevens = json.load(antwoord)
+
+vliegtuigen  = gegevens.get("ac", [])
+
+print("aantal gevonden vliegtuigen:", len(vliegtuigen))
