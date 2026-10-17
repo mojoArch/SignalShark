@@ -121,6 +121,7 @@ Finally, I added an ASCII aircraft banner to give the terminal program its own i
 
 ![SignalShark aircraft tracker running in the terminal](images/process.png)
 
+
 The screenshot shows one snapshot of the returned data. Counts and available information change between requests.
 
 ## Where the project is now
