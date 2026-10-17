@@ -52,10 +52,17 @@ for vliegtuig in vliegtuigen:
         hoogteTekst = "geland"
     elif hoogte is None:
         hoogteTekst = "onbekend"
-    else: 
-        hoogteTekst = f"{hoogte} ft"
+    else:
+        hoogteKm = hoogte * 0.0003048 
+        hoogteTekst = f"{hoogteKm:.2f} km"
+    snelheid = vliegtuig.get("gs")
+
+    if snelheid is None:
+        snelheidTekst = "onbekend"
+    else:
+        snelheidKmH = snelheid * 1.852
+        snelheidTekst = f"{snelheidKmH:.0f} km/u"
     print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie:<10} | hoogte: {hoogteTekst}")
-
-
+    snelheid: {snelheidTekst}
 
 
