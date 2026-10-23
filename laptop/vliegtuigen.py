@@ -62,6 +62,9 @@ for vliegtuig in vliegtuigen:
     else:
         snelheidKmH = snelheid * 1.852
         snelheidTekst = f"{snelheidKmH:.0f} km/u"
+    afstand = vliegtuig.get("dst")
+    
+    if afstand is None:
     print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie:<10} | hoogte: {hoogteTekst}")
     snelheid: {snelheidTekst}
 
