@@ -69,7 +69,6 @@ for vliegtuig in vliegtuigen:
     else: 
         afstandKm = afstand * 1.852
         afstandTekst = f"{afstandKm:.1f} km"
-    print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie:<10} | hoogte: {hoogteTekst}")
-    snelheid: {snelheidTekst}
+        print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie:<10} | hoogte: {hoogteTekst} | snelheid: {snelheidTekst} | afstand: {afstandTekst}")
 
 
