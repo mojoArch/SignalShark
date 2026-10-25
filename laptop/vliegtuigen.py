@@ -75,7 +75,7 @@ for vliegtuig in vliegtuigen:
         richtingTekst = "onbekend"
     else: 
         richtingTekst = f"{richting:.0f}"
-        print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | registratie: {registratie:<10} | hoogte: {hoogteTekst} | snelheid: {snelheidTekst} | afstand: {afstandTekst} 
- | Richting: {richtingTekst} ")
+        
+    print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | Registratie: {registratie:<10} | Hoogte: {hoogteTekst} | Snelheid: {snelheidTekst} | Afstand: {afstandTekst} | Richting: {richtingTekst}°")
 
 
