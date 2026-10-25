@@ -65,7 +65,7 @@ for vliegtuig in vliegtuigen:
 
     afstand = vliegtuig.get("dst")
     if afstand is None:
-        afstandTekst = onbekend
+        afstandTekst = "onbekend"
     else: 
         afstandKm = afstand * 1.852
         afstandTekst = f"{afstandKm:.1f} km"
