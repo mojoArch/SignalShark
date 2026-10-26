@@ -1,4 +1,5 @@
 import urllib.request
+import urllib.error
 import json
 
 
@@ -76,6 +77,15 @@ for vliegtuig in vliegtuigen:
     else: 
         richtingTekst = f"{richting:.0f}"
         
+
+if vliegtuigen:
+    eersteVliegtuig = vliegtuigen[0]
+    roepnaam = eersteVliegtuig.get("flight", "").strip()
+
+    if roepnaam:
+        routeUrl = f"https://api.adsbdb.com/v0/callsign/{roepnaam}"
+        print("Route opzoeken:", routeUrl)
+
     print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | Registratie: {registratie:<10} | Hoogte: {hoogteTekst} | Snelheid: {snelheidTekst} | Afstand: {afstandTekst} | Richting: {richtingTekst}°")
 
 
