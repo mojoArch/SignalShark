@@ -84,7 +84,21 @@ if vliegtuigen:
 
     if roepnaam:
         routeUrl = f"https://api.adsbdb.com/v0/callsign/{roepnaam}"
-        print("Route opzoeken:", routeUrl)
+        try:
+            with urllib.request.urlopen(routeUrl, timeout=10) as routeAntwoord:
+                routeGegevens = json.load(routeAntwoord)
+
+            route = routeGegevens.get("response", {}).get("flightroute")
+
+            if route:
+                vertrek = route.get("origin", {}).get("name", "onbekend")
+                bestemming = route.get("destination", {}).get("name", "onbekend")
+                print("Route:", vertrek, "->", bestemming)
+            else:
+                print("geen routegegevens gevonden:(")
+            
+        except urllib.error.HTTPError:
+            print("geen routgegevens voor", roepnaam)
 
     print(f"{roepnaam:<12} | Type: {vliegtuigtype:<8} | Registratie: {registratie:<10} | Hoogte: {hoogteTekst} | Snelheid: {snelheidTekst} | Afstand: {afstandTekst} | Richting: {richtingTekst}°")
 
