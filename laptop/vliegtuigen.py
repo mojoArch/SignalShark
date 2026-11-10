@@ -77,11 +77,13 @@ for vliegtuig in vliegtuigen:
     else: 
         richtingTekst = f"{richting:.0f}"
         
-
-if vliegtuigen:
-    eersteVliegtuig = vliegtuigen[0]
-    roepnaam = eersteVliegtuig.get("flight", "").strip()
-
+        richting = vliegtuig.get("track")
+        if richting is None:
+            richtingTekst = "Onbekend"
+        else:
+            richtingTekst = f"{richting:.0f}"
+        
+    
     if roepnaam:
         routeUrl = f"https://api.adsbdb.com/v0/callsign/{roepnaam}"
         try:
