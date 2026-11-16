@@ -31,9 +31,15 @@ url = f"https://api.adsb.lol/v2/lat/{breedtegraad}/lon/{lengtegraad}/dist/{straa
 
 print(url)
 
-with urllib.request.urlopen(url, timeout=10) as antwoord:
-    gegevens = json.load(antwoord)
-
+try: 
+    with urllib.request.urlopen(url, timeout=10) as antwoord:
+        gegevens = json.load(antwoord)
+    
+except (urllib.error.URLError, TimeoutError, ConnectionResetError) as fout:
+    print("vliegtuigen ophalen mislukt:", fout)
+    print("probeer het over een minuut opnieuw.")
+    raise SystemExit(1)
+ 
 vliegtuigen  = gegevens.get("ac", [])
 
 print("aantal gevonden vliegtuigen:", len(vliegtuigen))
