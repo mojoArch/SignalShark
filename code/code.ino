@@ -28,6 +28,7 @@ void setup() {
   delay(1000);
   toonMenu();
 }
+
 const char* beoordeelSignaal(int signaal){
   if(signaal >= -60){
     return "Sterk Signaal";
