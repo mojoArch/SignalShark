@@ -37,7 +37,12 @@ verzoek = urllib.request.Request(
 )
 
 try:
-    
+    with urllib.request.urlopen(verzoek, timeout=30) as antwoord:
+        gegevens = json.load(antwoord)
+
+except (urllib.error.URLError, TimeoutError, ConnectionResetError) as fout:
+    print("vliegtuigen ophalen mislukt", fout)
+    raise SystemExit(1)
 
 vliegtuigen  = gegevens.get("ac", [])
 
