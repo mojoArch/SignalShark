@@ -16,21 +16,14 @@ void toonMenu(){
 }
 void setup() {
   Serial.begin(115200);
-  delay(2000);
-  Serial.println("TEST 1: ESP32 gestart");
 
-  SPI.begin(6, 3, 7, 5);
-  Serial.println("TEST 2: SPI gestart");
+  SPI.begin(6, 3, 7, 5); // SCK, MISO, MOSI, CSN
 
-  bool radioOk = radio.begin();
-  Serial.println("TEST 3: radio.begin klaar");
-
-  if (radioOk) {
+  if (radio.begin()) {
     Serial.println("nRF24 gevonden");
   } else {
-    Serial.println("nRF24 niet gevonden");
+    Serial.println("nRF24 niet gevonden, controleer de bedrading");
   }
-
   WiFi.mode(WIFI_STA);
   delay(1000);
   toonMenu();
